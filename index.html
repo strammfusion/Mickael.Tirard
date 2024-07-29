@@ -1,0 +1,1513 @@
+<!DOCTYPE html><html lang="fr"><head>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes typeWriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    </style>
+    <base href="https://websim.ai/omegabus/attachment/d72fca77-34e2-4ec6-af73-90b7e69f0776,%20garde%20la%20mise%20en%20forme,%20remplace%20la%20photo%20de%20fond%20de%20page%20actuelle,">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #000000;
+            background-image: url('https://websim.ai/omegabus/attachment/d72fca77-34e2-4ec6-af73-90b7e69f0776');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: white;
+        }
+        header {
+            background-color: rgba(44, 62, 80, 0.8);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            background-color: rgba(52, 73, 94, 0.8);
+            color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            flex: 1 1 auto;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: rgba(44, 62, 80, 0.8);
+            border-radius: 5px;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 90%;
+            align-self: center;
+            transition: all 0.5s ease-in-out;
+        }
+        .content.active {
+            display: block;
+        }
+        .close-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 20px;
+            display: block;
+            width: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            nav a {
+                flex: 1 1 120px;
+                margin: 0 10px;
+            }
+            .content {
+                max-width: 800px;
+            }
+            .close-btn {
+                float: right;
+                width: auto;
+            }
+        }
+        @keyframes fadeOutAfter10s {
+            0%, 99% {
+                opacity: 1;
+                visibility: visible;
+            }
+            100% {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    </style>
+</head>
+<body><div>
+    <header style="background: linear-gradient(135deg, rgba(230, 230, 230, 0.7), rgba(192, 192, 192, 0.7), rgba(169, 169, 169, 0.7)); color: #333; padding: 20px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+    <div style="display: flex; justify-content: center; align-items: center; position: relative; overflow: hidden; height: 200px;">
+        <div style="position: relative; z-index: 2; text-align: center; background-color: rgba(0, 0, 0, 0.6); padding: 20px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; opacity: 0; animation: fadeIn 1s forwards 1s;">
+            <div style="text-align: left;">
+                <h1 style="font-size: 2.5em; text-shadow: 2px 2px 4px rgba(255,255,255,0.2), 0 0 10px rgba(0,0,0,0.8); margin: 0; color: #fff; position: relative;">
+                    <span id="name" style="display: inline-block; transform: perspective(500px) rotateX(20deg); text-transform: uppercase; background: linear-gradient(to bottom, #ffffff, #cccccc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; padding: 10px; border: 2px solid #ffffff; border-radius: 10px; box-shadow: 0 5px 15px rgba(255,255,255,0.5); font-size: 0.9em; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);"></span>
+                </h1>
+                <p id="cv" style="font-size: 0.8em; color: #ccc; margin-top: 5px; font-style: italic; text-transform: uppercase; letter-spacing: 2px;"></p>
+            </div>
+            <img src="https://via.placeholder.com/200" alt="Photo de profil" style="border-radius: 50%; width: 100px; height: 100px; box-shadow: 0 0 15px rgba(255,255,255,0.4); margin-left: 20px; transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease; opacity: 0; animation: fadeIn 1s forwards 2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+        </div>
+    </div>
+    <script>
+        function typeWriter(elementId, text, speed) {
+            let i = 0;
+            const element = document.getElementById(elementId);
+            element.innerHTML = '';
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                } else if (elementId === 'cv') {
+                    setTimeout(() => {
+                        const cursor = document.querySelector('.cursor');
+                        if (cursor) cursor.style.display = 'none';
+                    }, 500);
+                }
+            }
+            type();
+        }
+
+        setTimeout(() => {
+            typeWriter('name', 'Mickaël Tirard', 100);
+            setTimeout(() => {
+                const cvElement = document.getElementById('cv');
+                cvElement.innerHTML = '<span></span><span class="cursor" style="border-right: 2px solid #fff; animation: blink 0.7s infinite;"></span>';
+                typeWriter('cv', 'Curriculum Vitae', 100);
+            }, 2000);
+        }, 3000);
+    </script>
+</header>
+    <nav style="background-color: rgba(105, 105, 105, 0.9); color: white; display: flex; flex-wrap: wrap; justify-content: center; padding: 10px; position: sticky; top: 0; left: 0; right: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.3); background-image: linear-gradient(45deg, rgba(80, 80, 80, 0.9) 25%, transparent 25%, transparent 75%, rgba(80, 80, 80, 0.9) 75%, rgba(80, 80, 80, 0.9)), linear-gradient(45deg, rgba(80, 80, 80, 0.9) 25%, transparent 25%, transparent 75%, rgba(80, 80, 80, 0.9) 75%, rgba(80, 80, 80, 0.9)); background-size: 4px 4px; background-position: 0 0, 2px 2px; margin-top: 20px;">
+    <a href="javascript:void(0);" data-target="about" style="color: #fff; text-decoration: none; padding: 10px; flex: 1 1 auto; text-align: center; background-color: rgba(180, 180, 180, 0.7); margin: 2px; border-radius: 5px; transition: all 0.3s ease;">À propos de moi</a>
+    <a href="javascript:void(0);" data-target="skills" style="color: #fff; text-decoration: none; padding: 10px; flex: 1 1 auto; text-align: center; background-color: rgba(180, 180, 180, 0.7); margin: 2px; border-radius: 5px; transition: all 0.3s ease;">Compétences</a>
+    <a href="javascript:void(0);" data-target="experience" style="color: #fff; text-decoration: none; padding: 10px; flex: 1 1 auto; text-align: center; background-color: rgba(180, 180, 180, 0.7); margin: 2px; border-radius: 5px; transition: all 0.3s ease;">Expérience professionnelle</a>
+    <a href="javascript:void(0);" data-target="education" style="color: #fff; text-decoration: none; padding: 10px; flex: 1 1 auto; text-align: center; background-color: rgba(180, 180, 180, 0.7); margin: 2px; border-radius: 5px; transition: all 0.3s ease;">Formation</a>
+    <a href="javascript:void(0);" data-target="hobbies" style="color: #fff; text-decoration: none; padding: 10px; flex: 1 1 auto; text-align: center; background-color: rgba(180, 180, 180, 0.7); margin: 2px; border-radius: 5px; transition: all 0.3s ease;">Hobbies</a>
+</nav>
+    <div id="about" class="content">
+    <section id="apropos" class="section" style="background-color: rgba(240, 240, 240, 0.9); border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h2 style="font-size: 1.8em; color: #4a4a4a; margin-bottom: 20px; border-bottom: 2px solid #a0a0a0; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">À Propos de Moi</h2>
+    <p style="font-size: 1.1em; line-height: 1.8; color: #333; margin-bottom: 20px;">Fort d'une expérience de 25 ans dans des domaines techniques variés, j'ai pu développer des compétences en gestion technique et maintenance. Mon parcours m'a permis d'acquérir de l'expérience dans le leadership d'équipes, la gestion de projets et l'optimisation des processus de maintenance.
+Au fil des années, j'ai travaillé à cultiver mon autonomie, ma capacité d'adaptation et mon approche analytique des problèmes. J'ai cherché à favoriser l'innovation tout en restant à l'écoute des besoins des équipes. Mon expérience m'a aidé à développer mes compétences en diagnostic technique et en communication.
+J'ai appris l'importance du travail collaboratif et de la gestion efficace du stress pour maintenir la performance. Ces années m'ont permis d'acquérir une certaine polyvalence technique que je m'efforce de mettre au service des projets et des équipes.</p>
+    
+    <details>
+        <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: sticky; top: 60px; z-index: 99; overflow: visible;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    Points forts <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+    <span class="toggle-text">Afficher</span>
+    <script>
+    (function() {
+        const toggleText = document.currentScript.previousElementSibling;
+        const summary = document.currentScript.closest('summary');
+        const details = summary.closest('details');
+        
+        details.addEventListener('toggle', function() {
+            if (this.open) {
+                toggleText.textContent = 'Fermer';
+                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+            } else {
+                toggleText.textContent = 'Afficher';
+                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+            }
+        });
+    })();
+    </script>
+    </span>
+    <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
+</summary>
+        <ul style="list-style-type: none; padding-left: 0; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <li style="margin-bottom: 15px; padding: 15px; background: linear-gradient(135deg, #f6f8fa 0%, #e9eef2 100%); border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+        <span style="font-size: 24px; margin-right: 15px; color: #3498db;">🔄</span>
+        <div>
+            <span style="font-weight: bold; color: #2c3e50; display: block; margin-bottom: 5px;">Adaptabilité</span>
+            <span style="color: #34495e;">Capacité à s'adapter rapidement aux nouvelles situations et environnements de travail.</span>
+        </div>
+    </li>
+    <li style="margin-bottom: 15px; padding: 15px; background: linear-gradient(135deg, #f6f8fa 0%, #e9eef2 100%); border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+        <span style="font-size: 24px; margin-right: 15px; color: #3498db;">🤝</span>
+        <div>
+            <span style="font-weight: bold; color: #2c3e50; display: block; margin-bottom: 5px;">Esprit d'équipe</span>
+            <span style="color: #34495e;">Collaboration efficace avec les collègues pour atteindre des objectifs communs.</span>
+        </div>
+    </li>
+    <li style="margin-bottom: 15px; padding: 15px; background: linear-gradient(135deg, #f6f8fa 0%, #e9eef2 100%); border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+        <span style="font-size: 24px; margin-right: 15px; color: #3498db;">🏋️</span>
+        <div>
+            <span style="font-weight: bold; color: #2c3e50; display: block; margin-bottom: 5px;">Résilience</span>
+            <span style="color: #34495e;">Maintien d'une attitude positive face aux défis et capacité à rebondir rapidement après les échecs.</span>
+        </div>
+    </li>
+    <li style="margin-bottom: 15px; padding: 15px; background: linear-gradient(135deg, #f6f8fa 0%, #e9eef2 100%); border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+        <span style="font-size: 24px; margin-right: 15px; color: #3498db;">🧠</span>
+        <div>
+            <span style="font-weight: bold; color: #2c3e50; display: block; margin-bottom: 5px;">Curiosité intellectuelle</span>
+            <span style="color: #34495e;">Quête constante de nouvelles connaissances et d'opportunités d'apprentissage.</span>
+        </div>
+    </li>
+    <li style="margin-bottom: 15px; padding: 15px; background: linear-gradient(135deg, #f6f8fa 0%, #e9eef2 100%); border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+        <span style="font-size: 24px; margin-right: 15px; color: #3498db;">⚖️</span>
+        <div>
+            <span style="font-weight: bold; color: #2c3e50; display: block; margin-bottom: 5px;">Intégrité</span>
+            <span style="color: #34495e;">Adhésion à des principes éthiques solides et maintien d'une conduite professionnelle exemplaire.</span>
+        </div>
+    </li>
+    <li style="margin-bottom: 15px; padding: 15px; background: linear-gradient(135deg, #f6f8fa 0%, #e9eef2 100%); border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+        <span style="font-size: 24px; margin-right: 15px; color: #3498db;">💡</span>
+        <div>
+    <span style="font-weight: bold; color: #2c3e50; display: block; margin-bottom: 5px;">Créativité</span>
+    <span style="color: #34495e;">Apport de solutions nouvelles aux problèmes.</span>
+</div>
+    </li>
+    <li style="margin-bottom: 15px; padding: 15px; background: linear-gradient(135deg, #f6f8fa 0%, #e9eef2 100%); border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
+        <span style="font-size: 24px; margin-right: 15px; color: #3498db;">🤗</span>
+        <div>
+            <span style="font-weight: bold; color: #2c3e50; display: block; margin-bottom: 5px;">Empathie</span>
+            <span style="color: #34495e;">Capacité à comprendre et à prendre en compte les perspectives et les sentiments des autres.</span>
+        </div>
+    </li>
+</ul>
+    </details>
+    
+    <p style="font-size: 1.1em; line-height: 1.8; color: #333; margin-top: 25px; padding: 20px; background: rgba(230, 230, 230, 0.8); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">Je recherche activement de nouveaux défis pour exploiter mon expertise tout en élargissant mes compétences. Mon ambition est de contribuer à l'excellence opérationnelle d'une entreprise dynamique, en mettant à profit mes aptitudes en leadership, gestion de projets et optimisation des processus. Mes qualités d'indépendance, d'adaptabilité et d'innovation seront des atouts majeurs pour une organisation visant à améliorer sa performance technique et opérationnelle. Je suis prêt à m'investir pleinement pour atteindre les objectifs fixés et participer activement au succès de l'entreprise.</p>
+    
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); margin: 20px 0;">
+    
+    <button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</section>
+    <button></button>
+</div>
+    <div id="skills" class="content">
+    <section id="skills2" class="section" style="background-color: rgba(240, 240, 240, 0.9); border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h2 style="font-size: 1.8em; color: #4a4a4a; margin-bottom: 20px; border-bottom: 2px solid #a0a0a0; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">Compétences</h2>
+    
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;">
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <h5 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.2em; border-bottom: 2px solid #3498db; padding-bottom: 10px;">1. Gestion Technique et Logistique</h5>
+        <p style="color: #34495e; font-size: 0.9em;">Supervision de la préparation du matériel, coordination des installations, et optimisation des processus logistiques.</p>
+    </div>
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <h5 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.2em; border-bottom: 2px solid #3498db; padding-bottom: 10px;">2. Maintenance du Matériel</h5>
+        <p style="color: #34495e; font-size: 0.9em;">Mise en place de programmes d'entretien préventif et gestion des interventions correctives.</p>
+    </div>
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <h5 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.2em; border-bottom: 2px solid #3498db; padding-bottom: 10px;">3. Collaboration et Communication</h5>
+        <p style="color: #34495e; font-size: 0.9em;">Liaison efficace entre les différents services et communication claire avec les clients.</p>
+    </div>
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <h5 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.2em; border-bottom: 2px solid #3498db; padding-bottom: 10px;">4. Service Après-Vente</h5>
+        <p style="color: #34495e; font-size: 0.9em;">Gestion des interventions SAV, résolution de problèmes et suivi de la satisfaction client.</p>
+    </div>
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <h5 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.2em; border-bottom: 2px solid #3498db; padding-bottom: 10px;">5. Gestion de Projet</h5>
+        <p style="color: #34495e; font-size: 0.9em;">Coordination des installations sur site, direction d'équipes et optimisation des processus de travail.</p>
+    </div>
+</div>
+    
+    <h3 style="color: #2c3e50; margin-top: 30px; margin-bottom: 15px; font-size: 1.4em;">Niveaux de Compétences Techniques</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+        <h3 style="color: #2c3e50; font-size: 1.2em; margin-bottom: 15px; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Électricité industrielle</h3>
+        <div class="skill-bar" style="background-color: #ecf0f1; height: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <div style="width: 95%; height: 100%; background-color: #3498db; border-radius: 10px; position: relative;">
+                <span style="position: absolute; right: 5px; top: 0; color: #fff; font-weight: bold;">95%</span>
+            </div>
+        </div>
+    </div>
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+        <h3 style="color: #2c3e50; font-size: 1.2em; margin-bottom: 15px; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Électromécanique</h3>
+        <div class="skill-bar" style="background-color: #ecf0f1; height: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <div style="width: 85%; height: 100%; background-color: #3498db; border-radius: 10px; position: relative;">
+                <span style="position: absolute; right: 5px; top: 0; color: #fff; font-weight: bold;">85%</span>
+            </div>
+        </div>
+    </div>
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+        <h3 style="color: #2c3e50; font-size: 1.2em; margin-bottom: 15px; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Maintenance préventive et corrective</h3>
+        <div class="skill-bar" style="background-color: #ecf0f1; height: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <div style="width: 90%; height: 100%; background-color: #3498db; border-radius: 10px; position: relative;">
+                <span style="position: absolute; right: 5px; top: 0; color: #fff; font-weight: bold;">90%</span>
+            </div>
+        </div>
+    </div>
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+        <h3 style="color: #2c3e50; font-size: 1.2em; margin-bottom: 15px; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Électro-érosion à fil</h3>
+        <div class="skill-bar" style="background-color: #ecf0f1; height: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <div style="width: 90%; height: 100%; background-color: #3498db; border-radius: 10px; position: relative;">
+                <span style="position: absolute; right: 5px; top: 0; color: #fff; font-weight: bold;">90%</span>
+            </div>
+        </div>
+    </div>
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+        <h3 style="color: #2c3e50; font-size: 1.2em; margin-bottom: 15px; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Cuisine professionnelle et froid</h3>
+        <div class="skill-bar" style="background-color: #ecf0f1; height: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <div style="width: 85%; height: 100%; background-color: #3498db; border-radius: 10px; position: relative;">
+                <span style="position: absolute; right: 5px; top: 0; color: #fff; font-weight: bold;">85%</span>
+            </div>
+        </div>
+    </div>
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+        <h3 style="color: #2c3e50; font-size: 1.2em; margin-bottom: 15px; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Informatique</h3>
+        <div class="skill-bar" style="background-color: #ecf0f1; height: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <div style="width: 85%; height: 100%; background-color: #3498db; border-radius: 10px; position: relative;">
+                <span style="position: absolute; right: 5px; top: 0; color: #fff; font-weight: bold;">85%</span>
+            </div>
+        </div>
+    </div>
+    <div style="flex: 1 1 300px; background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+        <h3 style="color: #2c3e50; font-size: 1.2em; margin-bottom: 15px; border-bottom: 2px solid #3498db; padding-bottom: 10px;">Gestion de projet technique</h3>
+        <div class="skill-bar" style="background-color: #ecf0f1; height: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <div style="width: 80%; height: 100%; background-color: #3498db; border-radius: 10px; position: relative;">
+                <span style="position: absolute; right: 5px; top: 0; color: #fff; font-weight: bold;">80%</span>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</section>
+    <button></button>
+</div>
+    <div id="experience" class="content">
+    <section id="experience-professionnelle" class="section" style="background-color: rgba(240, 240, 240, 0.9); border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+    <h2 style="font-size: 1.8em; color: #4a4a4a; margin-bottom: 20px; border-bottom: 2px solid #a0a0a0; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">EXPÉRIENCE PROFESSIONNELLE</h2>
+    
+    <p style="font-size: 1.1em; line-height: 1.8; color: #333; margin-bottom: 20px;">Voici un aperçu de mon parcours professionnel, mettant en évidence mes principales expériences et responsabilités :</p>
+    
+    <details>
+        <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; position: sticky; top: 100px; z-index: 99;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    Gérant de société (3 ans) <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+    <span class="toggle-text">Afficher</span>
+    <script>
+    (function() {
+        const toggleText = document.currentScript.previousElementSibling;
+        const summary = document.currentScript.closest('summary');
+        const details = summary.closest('details');
+        
+        details.addEventListener('toggle', function() {
+            if (this.open) {
+                toggleText.textContent = 'Fermer';
+                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+            } else {
+                toggleText.textContent = 'Afficher';
+                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+            }
+        });
+    })();
+    </script>
+    </span>
+    <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
+</summary>
+        <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">Expertise en Gestion et Exploitation de Restaurants</h3>
+    
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Gestion financière</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Management d'équipe</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Planification et organisation</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Expertise culinaire</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Service client</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Marketing et promotion</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Gestion de projet et rénovation</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Conformité et sécurité</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Gestion du temps et efficacité</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Gestion de crise et résilience</span>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">1. Gestion Financière</h5>
+            <p style="color: #34495e; font-size: 0.9em;">Maîtrise de la comptabilité, gestion des coûts, optimisation de la rentabilité, élaboration et suivi des budgets, gestion de la trésorerie.</p>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+    <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">2. Management d'Équipe</h5>
+    <p style="color: #34495e; font-size: 0.9em;">Recrutement et formation du personnel, développement des compétences des employés.</p>
+</div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">3. Planification et Organisation</h5>
+            <p style="color: #34495e; font-size: 0.9em;">Élaboration des menus, gestion des stocks, optimisation des approvisionnements, planification des horaires, gestion des réservations et événements, mise en place de procédures opérationnelles.</p>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">4. Expertise Culinaire</h5>
+            <p style="color: #34495e; font-size: 0.9em;">Maîtrise des techniques de préparation, création de recettes innovantes, contrôle de la qualité des plats, gestion des allergènes et régimes spéciaux.</p>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+    <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">5. Service Client</h5>
+    <p style="color: #34495e; font-size: 0.9em;">Développement d'une approche centrée sur la satisfaction client, gestion des retours clients, formation du personnel aux techniques de service.</p>
+</div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+    <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">6. Marketing et Promotion</h5>
+    <p style="color: #34495e; font-size: 0.9em;">Conception et mise en place de campagnes promotionnelles, développement de programmes de fidélisation, gestion des réseaux sociaux et du marketing digital.</p>
+</div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+    <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">7. Gestion de Projet et Rénovation</h5>
+    <p style="color: #34495e; font-size: 0.9em;">Coordination des travaux de rénovation, mise aux normes des installations, planification et exécution de projets d'ouverture, gestion des budgets de rénovation.</p>
+</div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">8. Conformité et Sécurité</h5>
+            <p style="color: #34495e; font-size: 0.9em;">Respect des normes d'hygiène et de sécurité alimentaire, mise en place de procédures HACCP, formation du personnel aux règles de sécurité.</p>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+    <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">9. Gestion du Temps et Efficacité</h5>
+    <p style="color: #34495e; font-size: 0.9em;">Optimisation des processus opérationnels, gestion efficace des périodes de pointe, délégation efficace des tâches.</p>
+</div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">10. Gestion de Crise et Résilience</h5>
+            <p style="color: #34495e; font-size: 0.9em;">Élaboration de plans de continuité d'activité, gestion efficace des situations d'urgence, adaptation rapide aux changements de marché, résolution créative de problèmes.</p>
+        </div>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et Acquis Professionnels</h4>
+    <div>
+    <p style="text-align: justify; line-height: 1.8; background-color: #f9f9f9; padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); color: #333;">
+    Mon expérience en tant que gérant de restaurant m'a permis de développer une vision globale de la gestion, alliant compétences culinaires, gestion d'entreprise et orientation client. J'ai acquis des compétences essentielles telles que l'autonomie dans la prise de décisions, l'adaptation face aux défis quotidiens, l'optimisation des processus et la créativité dans l'élaboration de menus et de stratégies marketing.
+    <br><br>
+    Ma résilience a été mise à l'épreuve face aux fluctuations du marché et aux imprévus, m'apprenant à persévérer et à innover en conditions difficiles. Mes compétences en communication et en travail d'équipe ont été cruciales pour gérer efficacement le personnel et interagir avec les clients.
+    <br><br>
+    En résumé, cette expérience a enrichi mon profil professionnel en me dotant de compétences techniques et humaines précieuses et transférables à divers contextes professionnels.
+    </p>
+    <button onclick="this.closest('details').removeAttribute('open')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</div>
+</div>
+    </details>
+
+    <details>
+<summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: sticky; top: 120px; z-index: 98; overflow: hidden;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    Responsable technique (5 ans) 
+    <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+        <span class="toggle-text">Afficher</span>
+        <script>
+        (function() {
+            const toggleText = document.currentScript.previousElementSibling;
+            const summary = document.currentScript.closest('summary');
+            const details = summary.closest('details');
+            
+            details.addEventListener('toggle', function() {
+                if (this.open) {
+                    toggleText.textContent = 'Fermer';
+                    summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+                } else {
+                    toggleText.textContent = 'Afficher';
+                    summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                }
+            });
+        })();
+        </script>
+    </span>
+    <span></span>
+</summary>
+        <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">Expertise en tant que Responsable Technique</h3>
+    
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Gestion technique</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Coordination logistique</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Maintenance du matériel</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Liaison avec le Bureau d'Études</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Interface avec le Service Commercial</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Gestion des sous-traitants</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Support technique</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Coordination des installations</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Optimisation des processus</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Gestion de projet</span>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            1. Gestion Technique et Logistique
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Aptitude à prendre en charge de façon autonome la préparation et l'organisation du matériel, en anticipant les besoins et en optimisant les ressources disponibles.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+            </svg>
+            2. Maintenance du Matériel
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Capacité à concevoir et mettre en œuvre de façon indépendante des programmes d'entretien préventif, tout en gérant efficacement les interventions correctives nécessaires.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            3. Collaboration et Communication
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Aptitude à établir et maintenir de manière proactive des liens efficaces entre les différents services, tout en assurant une communication claire avec les clients.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            4. Service Après-Vente
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Capacité à prendre en charge de façon indépendante les interventions SAV, à résoudre les problèmes et à assurer un suivi proactif de la satisfaction client.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            5. Gestion de Projet
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Aptitude à coordonner de manière autonome les installations sur site, à diriger efficacement les équipes et à optimiser les processus de travail sans supervision constante.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            6. Innovation et Amélioration Continue
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Initiative pour effectuer une veille technologique indépendante et proposer des améliorations techniques pertinentes.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+            7. Formation et Développement
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Aptitude à former les équipes techniques, à créer des supports pédagogiques et à évaluer les compétences de manière autonome.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            8. Gestion de la Qualité et Sécurité
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Capacité à mettre en place des procédures de contrôle qualité et à veiller au respect des normes de sécurité de façon indépendante.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            9. Analyse et Résolution de Problèmes
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Aptitude à diagnostiquer rapidement les dysfonctionnements et à mettre en œuvre des solutions efficaces sans nécessiter de supervision.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            10. Gestion des Ressources
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Compétence pour optimiser les budgets, gérer efficacement les équipes et les sous-traitants de manière autonome.</p>
+    </div>
+</div>
+
+    <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et Acquis Professionnels</h4>
+    <p style="text-align: justify; line-height: 1.8; color: #333;">
+    Cette expérience en tant que responsable technique chez Modul-kit a enrichi ma vision globale des projets de cuisines modulaires, alliant expertise technique et gestion humaine. J'ai développé ma capacité à m'adapter rapidement, faisant preuve d'autonomie décisionnelle et d'innovation pour résoudre des problèmes complexes. Ma rigueur et mon sens de l'organisation ont été essentiels pour coordonner efficacement les différents aspects des projets, de la préparation à l'installation. L'interaction constante avec les clients et les équipes a renforcé mes aptitudes en communication, me permettant d'expliquer clairement des concepts techniques et de gérer les attentes. Mon esprit collaboratif s'est révélé crucial pour favoriser la synergie entre les services techniques, commerciaux et le bureau d'études. Face aux défis inhérents à ce poste, j'ai démontré une grande persévérance, cherchant constamment des solutions même dans des situations difficiles. Cette expérience a considérablement enrichi mon profil professionnel, me dotant de compétences techniques et humaines précieuses, applicables à divers contextes. Elle m'a appris à jongler entre les aspects techniques, managériaux et relationnels, tout en maintenant comme priorité la satisfaction du client et l'efficacité opérationnelle.
+    </p>
+    <button onclick="this.closest('details').removeAttribute('open')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</div>
+    </details>
+
+    <details>
+<summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: sticky; top: 120px; z-index: 98; overflow: hidden;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    Technicien SAV Cuisines Professionnelles (5 ans) 
+    <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+        <span class="toggle-text">Afficher</span>
+        <script>
+        (function() {
+            const toggleText = document.currentScript.previousElementSibling;
+            const summary = document.currentScript.closest('summary');
+            const details = summary.closest('details');
+            
+            details.addEventListener('toggle', function() {
+                if (this.open) {
+                    toggleText.textContent = 'Fermer';
+                    summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+                } else {
+                    toggleText.textContent = 'Afficher';
+                    summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                }
+            });
+        })();
+        </script>
+    </span>
+    <span></span>
+</summary>
+        <div>
+    <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">Expertise en Service Après-Vente pour Équipements de Cuisine Professionnelle</h3>
+    
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Diagnostic et réparation</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Maintenance préventive</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Installation et mise en service</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Communication efficace</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Service client proactif</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Gestion des interventions</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Formation des utilisateurs</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Mise à jour des connaissances</span>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">1. Diagnostic et Réparation</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Capacité à diagnostiquer rapidement les pannes</li>
+                <li>Réalisation de réparations efficaces sur divers équipements</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">2. Maintenance Préventive</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Réalisation de visites régulières</li>
+                <li>Assurance de la maintenance préventive des équipements</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">3. Installation et Mise en Service</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Installation d'équipements de cuisine</li>
+                <li>Mise en service et configuration initiale</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">4. Communication Efficace</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Explication claire des problèmes techniques</li>
+                <li>Conseil aux clients sur l'utilisation et l'entretien</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">5. Service Client Proactif</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Dépassement des attentes clients</li>
+                <li>Service rapide et de qualité</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">6. Gestion des Interventions</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Organisation efficace des interventions</li>
+                <li>Gestion des priorités</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">7. Formation des Utilisateurs</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Formation sur l'utilisation des équipements</li>
+                <li>Instructions sur l'entretien de base</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">8. Mise à Jour des Connaissances</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Participation à des formations spécialisées</li>
+                <li>Échanges réguliers avec les fournisseurs et constructeurs</li>
+            </ul>
+        </div>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et Acquis Professionnels</h4>
+    <p style="text-align: justify; line-height: 1.8; color: #333;">
+Mon expérience en tant que technicien SAV pour les cuisines professionnelles m'a permis de développer une expertise technique approfondie et des compétences solides en relation client. J'ai appris à diagnostiquer rapidement les problèmes et à apporter des solutions efficaces, même sous pression. Cette expérience a considérablement accru ma polyvalence technique, me permettant d'intervenir sur une large gamme d'équipements.
+J'ai également adopté une approche proactive de la maintenance, ce qui a contribué à réduire les temps d'arrêt des équipements chez nos clients. Cette expérience m'a aidé à améliorer ma capacité à communiquer clairement des informations techniques complexes à des interlocuteurs variés et à gérer efficacement mon temps et mes priorités.
+Les compétences que j'ai acquises en formation des utilisateurs et en mise à jour constante de mes connaissances techniques sont des atouts précieux pour mon développement professionnel continu.
+</p>
+</div>
+    <button onclick="this.closest('details').removeAttribute('open')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</div>
+    </details>
+
+    <details>
+        <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; position: sticky; top: 50px; z-index: 100;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    Technicien d'Atelier (14 ans) <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+    <span class="toggle-text">Afficher</span>
+    <script>
+(function() {
+    const toggleText = document.currentScript.previousElementSibling;
+    const summary = document.currentScript.closest('summary');
+    const details = summary.closest('details');
+    
+    details.addEventListener('toggle', function() {
+        if (this.open) {
+            toggleText.textContent = 'Fermer';
+            summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+        } else {
+            toggleText.textContent = 'Afficher';
+            summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+        }
+    });
+})();
+</script>
+</span>
+    <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
+</summary>
+        <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">Expertise en Programmation d'Usinage par Électro-érosion à Fil</h3>
+    
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Électro-érosion à fil</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Programmation CNC</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Lecture de plans techniques</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Mécanique</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Électricité</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">CAO/FAO</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Contrôle qualité</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Maintenance</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Sécurité industrielle</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Optimisation des processus</span>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Programmation et CFAO</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Maîtrise des logiciels de CFAO (Mastercam, cam CT, Goelan C)</li>
+                <li>Programmation de découpes 4 axes avec dépouilles constantes et évolutives</li>
+                <li>Transformations d'usinage et import/export d'opérations</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Opérations d'Électro-Érosion par Fil</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Analyse des plans et identification des phases d'usinage</li>
+                <li>Maîtrise des opérations de découpe 4 axes</li>
+                <li>Réglage et optimisation des paramètres de découpes</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Ajustage de Moules Métalliques et Outils de Découpe</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Fabrication précise de moules et outils de découpe</li>
+                <li>Connaissance des matériaux pour moules et outils</li>
+                <li>Maîtrise des techniques d'ajustage et de finition</li>
+                <li>Assemblage et vérification des tolérances</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Maintenance et Optimisation</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Exécution de la maintenance préventive</li>
+                <li>Optimisation des paramètres en cours de programme</li>
+                <li>Capacité à reprendre et analyser les usinages</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Montage de Machines Spéciales et Prototypes</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Interprétation des plans et schémas techniques</li>
+                <li>Assemblage de composants mécaniques, électriques et pneumatiques</li>
+                <li>Réglage et mise au point des machines spéciales</li>
+                <li>Collaboration avec les ingénieurs pour les ajustements des prototypes</li>
+            </ul>
+        </div>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et Acquis Professionnels</h4>
+    <p style="text-align: justify; line-height: 1.8; color: #333;">
+Mon expérience de 14 ans en tant que technicien d'atelier spécialisé en électro-érosion à fil m'a permis de développer des compétences dans ce domaine de haute précision. J'ai été impliqué dans le montage de machines spéciales et de prototypes, ce qui m'a aidé à interpréter des plans complexes et à assembler des composants mécaniques, électriques et pneumatiques.
+
+J'ai acquis une connaissance approfondie des procédés d'usinage, de la programmation CNC et de l'optimisation des paramètres de production. Cette expérience m'a permis d'adopter une approche analytique pour résoudre des problèmes mécaniques, particulièrement utile lors de la conception et de la mise au point de prototypes.
+
+Mes compétences clés incluent le montage de machines spéciales, la maîtrise de l'électro-érosion à fil, ainsi que l'optimisation des processus de fabrication. J'ai également appris à m'adapter rapidement aux nouvelles technologies.
+</p>
+</div>
+    </details>
+
+    <details>
+        <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; position: sticky; top: 50px; z-index: 100;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    Electricien Industriel ( 9 ans ) <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+    <span class="toggle-text">Afficher</span>
+    <script>
+(function() {
+    const toggleText = document.currentScript.previousElementSibling;
+    const summary = document.currentScript.closest('summary');
+    const details = summary.closest('details');
+    
+    details.addEventListener('toggle', function() {
+        if (this.open) {
+            toggleText.textContent = 'Fermer';
+            summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+        } else {
+            toggleText.textContent = 'Afficher';
+            summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+        }
+    });
+})();
+</script>
+</span>
+    <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
+</summary>
+        <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">Expertise en Électricité Industrielle</h3>
+    
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Systèmes électriques industriels</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Lecture de plans électriques</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Installation et maintenance</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Diagnostic et résolution de pannes</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Normes de sécurité électrique</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Utilisation d'outils spécialisés</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Prévention des risques</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Travail en hauteur</span>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            1. Gestion Technique et Logistique
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Aptitude à prendre en charge de façon autonome la préparation et l'organisation du matériel, en anticipant les besoins et en optimisant les ressources disponibles.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+            </svg>
+            2. Maintenance du Matériel
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Capacité à concevoir et mettre en œuvre de façon indépendante des programmes d'entretien préventif, tout en gérant efficacement les interventions correctives nécessaires.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            3. Collaboration et Communication
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Aptitude à établir et maintenir de manière proactive des liens efficaces entre les différents services, tout en assurant une communication claire avec les clients.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            4. Service Après-Vente
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Capacité à prendre en charge de façon indépendante les interventions SAV, à résoudre les problèmes et à assurer un suivi proactif de la satisfaction client.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            5. Gestion de Projet
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Aptitude à coordonner de manière autonome les installations sur site, à diriger efficacement les équipes et à optimiser les processus de travail sans supervision constante.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="16"></line>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            6. Innovation et Amélioration Continue
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Initiative pour effectuer une veille technologique indépendante et proposer des améliorations techniques pertinentes.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+            7. Formation et Développement
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Aptitude à former les équipes techniques, à créer des supports pédagogiques et à évaluer les compétences de manière autonome.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            8. Gestion de la Qualité et Sécurité
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Capacité à mettre en place des procédures de contrôle qualité et à veiller au respect des normes de sécurité de façon indépendante.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            9. Analyse et Résolution de Problèmes
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Aptitude à diagnostiquer rapidement les dysfonctionnements et à mettre en œuvre des solutions efficaces sans nécessiter de supervision.</p>
+    </div>
+    <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 10px;">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            10. Gestion des Ressources
+        </h5>
+        <p style="color: #34495e; font-size: 0.9em;">Compétence pour optimiser les budgets, gérer efficacement les équipes et les sous-traitants de manière autonome.</p>
+    </div>
+</div>
+
+    <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et Acquis Professionnels</h4>
+    <p style="text-align: justify; line-height: 1.8; color: #333;">
+    Mon expérience de 9 ans en tant qu'électricien industriel m'a permis d'acquérir des connaissances approfondies dans ce domaine. J'ai travaillé sur des systèmes électriques complexes, ce qui m'a aidé à développer des compétences en résolution de problèmes techniques.
+    Au fil des années, j'ai appris à travailler de manière autonome et en équipe, tout en respectant les normes de sécurité. Ma capacité à lire et interpréter des plans techniques s'est améliorée, me permettant de contribuer à la planification et à l'exécution de projets.
+    Cette expérience m'a enseigné l'importance de l'adaptation aux nouvelles technologies et aux environnements changeants. J'ai également pu améliorer mes compétences en communication, facilitant la collaboration avec différents intervenants.
+    Ce parcours a renforcé mon intérêt pour l'électricité industrielle et m'a encouragé à continuer à me former dans ce domaine.
+    </p>
+    <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); margin: 20px 0;">
+    <button onclick="this.closest('details').removeAttribute('open')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</div>
+    </details>
+    
+    <p style="font-size: 1.1em; line-height: 1.8; color: #333; margin-top: 25px; padding: 20px; background: rgba(230, 230, 230, 0.8); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">Mon parcours professionnel m'a permis d'acquérir des compétences dans plusieurs domaines techniques et managériaux. En tant que gérant de société, j'ai pu développer des connaissances en gestion d'entreprise et service client. Mon expérience de responsable technique m'a aidé à améliorer mes compétences en gestion de projets et coordination d'équipes dans le secteur des cuisines modulaires. Mes années en tant que technicien SAV pour cuisines professionnelles m'ont permis de travailler sur le diagnostic et la maintenance d'équipements spécialisés. En tant que technicien d'atelier, j'ai pu me familiariser avec le montage de machines, l'ajustage, l'électro-érosion à fil et la programmation CNC. Mon expérience d'électricien industriel m'a apporté de bonnes connaissances électriques et sur les normes de sécurité. Ce parcours varié m'a aidé à développer une approche à la fois technique et stratégique des défis professionnels, ainsi qu'une capacité d'adaptation face aux différentes situations rencontrées.
+<button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</p>
+</section></div>
+    <div id="education" class="content">
+    <section id="formation" class="section" style="background-color: rgba(240, 240, 240, 0.9); border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h2 style="font-size: 1.8em; color: #4a4a4a; margin-bottom: 20px; border-bottom: 2px solid #a0a0a0; padding-bottom: 10px; text-transform: uppercase; letter-spacing: 2px;">Formation</h2>
+        
+        <p style="font-size: 1.1em; line-height: 1.8; color: #333; margin-bottom: 20px;">Voici un aperçu de mon parcours de formation, mettant en évidence mes principales qualifications et compétences acquises :</p>
+        
+        <details>
+            <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; position: sticky; top: 50px; z-index: 100;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    BTS - Technicien de maintenance industrielle <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+    <span class="toggle-text">Afficher</span>
+    <script>
+    (function() {
+        const toggleText = document.currentScript.previousElementSibling;
+        const summary = document.currentScript.closest('summary');
+        const details = summary.closest('details');
+        
+        details.addEventListener('toggle', function() {
+            if (this.open) {
+                toggleText.textContent = 'Fermer';
+                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)';
+            } else {
+                toggleText.textContent = 'Afficher';
+                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)';
+            }
+        });
+    })();
+    </script>
+    </span>
+    <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
+</summary>
+            <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">BTS Technicien de maintenance industrielle</h3>
+    <p style="color: #333333; font-weight: bold;"><strong>Institution:</strong> Lycée Technique</p>
+    <p><strong style="color: #1a1a1a; font-weight: bold;">Année d'obtention:</strong> <span style="color: black;">2005</span></p>
+    <p style="color: #333; font-size: 1.1em; line-height: 1.6; background-color: #f0f0f0; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: 10px;">
+    Formation approfondie en maintenance industrielle, axée sur le diagnostic, la réparation et l'optimisation des équipements industriels.
+    </p>
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Diagnostic et dépannage</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Maintenance préventive et corrective</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Analyse technique</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Gestion de projet</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Sécurité industrielle</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Amélioration continue</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Utilisation de GMAO</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Lecture de plans techniques</span>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Diagnostic et dépannage</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Maîtrise des méthodes de diagnostic structuré</li>
+                <li>Utilisation d'outils de mesure et de contrôle</li>
+                <li>Interprétation de schémas techniques</li>
+                <li>Analyse des données de maintenance</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Maintenance préventive et corrective</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Élaboration et suivi de plans de maintenance</li>
+                <li>Réalisation d'inspections et de contrôles</li>
+                <li>Exécution de réparations complexes</li>
+                <li>Remise en service des équipements</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Analyse technique et gestion de projet</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Lecture et interprétation de schémas techniques</li>
+                <li>Analyse des flux d'énergie et d'information</li>
+                <li>Réalisation d'études FMD</li>
+                <li>Utilisation de logiciels GMAO</li>
+                <li>Planification et ordonnancement des interventions</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Sécurité et amélioration continue</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Connaissance des normes de sécurité</li>
+                <li>Réalisation d'analyses de risques</li>
+                <li>Maîtrise des procédures de consignation/déconsignation</li>
+                <li>Participation à des projets d'amélioration continue</li>
+                <li>Proposition de modifications techniques</li>
+            </ul>
+        </div>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et acquis de la formation</h4>
+    <p style="text-align: justify; line-height: 1.8; color: #333;">
+La formation en BTS Technicien de maintenance industrielle m'a permis d'acquérir des connaissances techniques et méthodologiques dans ce domaine. J'ai appris à aborder les équipements industriels de manière systémique, ce qui m'aide à comprendre leur fonctionnement et à intervenir sur différents systèmes.
+J'ai développé des compétences en diagnostic, gestion de la maintenance et amélioration continue. Cette formation m'a également aidé à améliorer ma capacité à travailler en équipe et à communiquer.
+J'ai appris l'importance de l'adaptation aux nouvelles technologies dans l'environnement industriel. Cette expérience m'a fourni une base pour continuer à apprendre et à évoluer dans ce domaine.
+</p>
+    <button onclick="this.closest('details').removeAttribute('open')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</div>
+        </details>
+
+        <details>
+            <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; position: sticky; top: 50px; z-index: 100;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    BAC pro - Cuisines professionnelles et froid <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+    <span class="toggle-text">Afficher</span>
+    <script>
+    (function() {
+        const toggleText = document.currentScript.previousElementSibling;
+        const summary = document.currentScript.closest('summary');
+        const details = summary.closest('details');
+        
+        details.addEventListener('toggle', function() {
+            if (this.open) {
+                toggleText.textContent = 'Fermer';
+                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+            } else {
+                toggleText.textContent = 'Afficher';
+                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+            }
+        });
+    })();
+    </script>
+    </span>
+    <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
+</summary>
+            <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">BAC pro Cuisines professionnelles et froid</h3>
+    <p style="color: #333333; font-weight: bold;"><strong>Institution:</strong> Lycée Professionnel</p>
+    <p><strong style="color: #1a1a1a; font-weight: bold;">Année d'obtention:</strong> <span style="color: black;">1995</span></p>
+    <p style="color: #333; font-size: 1.1em; line-height: 1.6; background-color: #f0f0f0; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: 10px;">
+    Formation spécialisée en équipements de cuisine professionnelle et systèmes de réfrigération.
+    </p>
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Diagnostic et dépannage</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Maintenance préventive</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Installation et mise en service</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Communication efficace</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Service client proactif</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Gestion des interventions</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Formation des utilisateurs</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Mise à jour des connaissances</span>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Diagnostic et dépannage</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Utilisation d'outils de diagnostic avancés</li>
+                <li>Interprétation des codes d'erreur et des schémas techniques</li>
+                <li>Identification rapide des composants défectueux</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Maintenance préventive</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Élaboration et suivi de plans de maintenance</li>
+                <li>Réalisation d'inspections régulières</li>
+                <li>Optimisation des performances des équipements</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Installation et mise en service</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Installation d'équipements de cuisine professionnelle</li>
+                <li>Configuration et paramétrage des systèmes</li>
+                <li>Tests de fonctionnement et ajustements</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Communication efficace</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Explication claire des problèmes techniques</li>
+                <li>Rédaction de rapports d'intervention détaillés</li>
+                <li>Coordination avec les équipes internes et externes</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Service client proactif</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Anticipation des besoins des clients</li>
+                <li>Résolution rapide et efficace des problèmes</li>
+                <li>Suivi post-intervention</li>
+            </ul>
+        </div>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et acquis de la formation</h4>
+    <p style="text-align: justify; line-height: 1.8; color: #333;">
+La formation en BAC pro Cuisines professionnelles et froid m'a permis d'acquérir des connaissances techniques dans le domaine des équipements de cuisine professionnelle et des systèmes de réfrigération. J'ai appris à diagnostiquer, maintenir et installer ces équipements spécialisés.
+Cette formation m'a aidé à comprendre l'importance du respect des normes d'hygiène et de sécurité dans ce secteur. J'ai également développé des compétences en gestion de projet et en relation client.
+J'ai appris à aborder des problèmes techniques complexes, ce qui m'a préparé à travailler dans ce domaine en évolution. Cette expérience m'a fourni une base pour continuer à apprendre et à m'adapter aux changements dans ce secteur.
+</p>
+    <button onclick="this.closest('details').removeAttribute('open')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</div>
+        </details>
+
+        <details>
+            <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; position: sticky; top: 50px; z-index: 100;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    Programmeur en Électro-Érosion par Fil et Ajusteur en Moules Métalliques <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+    <span class="toggle-text">Afficher</span>
+    <script>
+    (function() {
+        const toggleText = document.currentScript.previousElementSibling;
+        const summary = document.currentScript.closest('summary');
+        const details = summary.closest('details');
+        
+        details.addEventListener('toggle', function() {
+            if (this.open) {
+                toggleText.textContent = 'Fermer';
+                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+            } else {
+                toggleText.textContent = 'Afficher';
+                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+            }
+        });
+    })();
+    </script>
+    </span>
+    <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
+</summary>
+            <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">Programmeur Usineur en Électro-Érosion par Fil et Ajusteur en Moules Métalliques</h3>
+    <p style="color: #333333; font-weight: bold;"><strong>Institution:</strong> Centre de Formation Professionnelle</p>
+    <p><strong style="color: #1a1a1a; font-weight: bold;">Année d'obtention:</strong> <span style="color: black;">2000</span></p>
+    <p style="color: #333; font-size: 1.1em; line-height: 1.6; background-color: #f0f0f0; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: 10px;">
+    Formation spécialisée en programmation d'usinage par électro-érosion à fil et ajustage de moules métalliques.
+    </p>
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Programmation CFAO</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Électro-érosion à fil</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Ajustage de moules</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Lecture de plans techniques</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Optimisation des processus</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Maintenance d'équipements</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Contrôle qualité</span>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Programmation et CFAO</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Maîtrise des logiciels de CFAO (Mastercam, cam CT, Goelan C)</li>
+                <li>Programmation de découpes 4 axes avec dépouilles constantes et évolutives</li>
+                <li>Transformations d'usinage et import/export d'opérations</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Opérations d'Électro-Érosion par Fil</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Analyse des plans et identification des phases d'usinage</li>
+                <li>Maîtrise des opérations de découpe 4 axes</li>
+                <li>Réglage et optimisation des paramètres de coupe</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Ajustage de Moules Métalliques</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Fabrication précise de moules et outils de découpe</li>
+                <li>Connaissance des matériaux pour moules</li>
+                <li>Maîtrise des techniques d'ajustage</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Maintenance et Optimisation</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Exécution de la maintenance préventive</li>
+                <li>Optimisation des paramètres en cours de programme</li>
+                <li>Capacité à reprendre et analyser les usinages</li>
+            </ul>
+        </div>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et acquis de la formation</h4>
+    <p style="text-align: justify; line-height: 1.8; color: #333;">
+    Cette formation spécialisée en électro-érosion par fil et en ajustage de moules métalliques m'a permis d'acquérir des compétences techniques avancées dans un domaine de haute précision. J'ai développé une expertise pointue en programmation CFAO, en opérations d'usinage complexes, et en optimisation des processus de fabrication. Cette expérience a considérablement renforcé ma capacité à résoudre des problèmes techniques complexes, à m'adapter rapidement aux nouvelles technologies, et à maintenir un haut niveau de qualité dans la production de pièces de précision.
+    </p>
+    <button onclick="this.closest('details').removeAttribute('open')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</div>
+        </details>
+
+        <details>
+            <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; position: sticky; top: 50px; z-index: 100;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    CAP - Électromécanicien <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+    <span class="toggle-text">Afficher</span>
+    <script>
+    (function() {
+        const toggleText = document.currentScript.previousElementSibling;
+        const summary = document.currentScript.closest('summary');
+        const details = summary.closest('details');
+        
+        details.addEventListener('toggle', function() {
+            if (this.open) {
+                toggleText.textContent = 'Fermer';
+                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+            } else {
+                toggleText.textContent = 'Afficher';
+                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+            }
+        });
+    })();
+    </script>
+    </span>
+    <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
+</summary>
+            <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">CAP Électromécanicien</h3>
+    <p style="color: #333333; font-weight: bold;"><strong>Institution:</strong> Centre de Formation Professionnelle</p>
+    <p><strong style="color: #1a1a1a; font-weight: bold;">Année d'obtention:</strong> <span style="color: black;">1992</span></p>
+    <p style="color: #333; font-size: 1.1em; line-height: 1.6; background-color: #f0f0f0; padding: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-top: 10px;">
+    Formation en électromécanique appliquée aux équipements industriels.
+    </p>
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Montage d'équipements industriels</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Réglages et mise au point</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Électricité et mécanique</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Installation et paramétrage</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Réparation et maintenance</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Lecture de plans et schémas</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Sécurité industrielle</span>
+        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Diagnostic de pannes</span>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">1. Montage d'équipements industriels</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Techniques de montage pour divers types d'équipements</li>
+                <li>Connaissance des composants et de leur fonction</li>
+                <li>Suivi des instructions de montage détaillées</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">2. Réglages et mise au point</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Procédures de réglage pour optimiser le fonctionnement</li>
+                <li>Tests de fonctionnement après montage ou réparation</li>
+                <li>Ajustement pour atteindre les performances souhaitées</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">3. Connaissances en électricité et mécanique</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Principes fondamentaux de l'électricité</li>
+                <li>Composants électriques de base</li>
+                <li>Principes mécaniques et systèmes</li>
+            </ul>
+        </div>
+        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">4. Installation et paramétrage de machines</h5>
+            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                <li>Installation dans l'environnement de travail</li>
+                <li>Branchements électriques</li>
+                <li>Paramétrage selon les spécifications</li>
+            </ul>
+        </div>
+    </div>
+
+    <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et acquis de la formation</h4>
+    <p style="text-align: justify; line-height: 1.8; color: #333;">
+    Cette formation en CAP Électromécanicien m'a permis d'acquérir une base solide dans les domaines de l'électricité et de la mécanique appliqués aux équipements industriels. J'ai développé des compétences pratiques essentielles pour le montage, l'installation, la maintenance et la réparation d'une variété de machines et systèmes. Cette formation a également renforcé ma capacité à lire et interpréter des documents techniques, à diagnostiquer des pannes, et à travailler en respectant les normes de sécurité.
+    </p>
+    <button onclick="this.closest('details').removeAttribute('open')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+</div>
+        </details>
+        
+        <p style="font-size: 1.1em; line-height: 1.8; color: #333; margin-top: 25px; padding: 20px; background: rgba(230, 230, 230, 0.8); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">Mon parcours de formation éclectique m'a doté d'une base technique solide en électrotechnique, enrichie par des compétences en gestion d'entreprise et une expertise pointue en sécurité électrique. Cette synergie entre connaissances théoriques et savoir-faire pratique me permet d'aborder les défis professionnels avec une vision holistique et une approche sécurisée. Cette polyvalence, fruit de mes diverses formations, constitue un atout majeur pour appréhender les complexités du monde professionnel actuel et proposer des solutions innovantes et efficaces.</p>
+        <button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+    </section>
+</div>
+    <div id="hobbies" class="content">
+    <h2 style="color: #2c3e50; text-align: center; font-size: 2em; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px;">Mes Passions</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 20px;">
+    <div style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease;">
+        <div style="background-color: #3498db; padding: 20px; text-align: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+        </div>
+        <div style="padding: 20px;">
+            <h3 style="color: #2c3e50; font-size: 1.4em; margin-bottom: 10px;">Informatique</h3>
+            <p style="color: #34495e; font-size: 1em; line-height: 1.6;">Exploration des dernières technologies, programmation, et résolution de problèmes techniques.</p>
+        </div>
+    </div>
+
+    <div style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease;">
+        <div style="background-color: #2ecc71; padding: 20px; text-align: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+        </div>
+        <div style="padding: 20px;">
+            <h3 style="color: #2c3e50; font-size: 1.4em; margin-bottom: 10px;">Nouvelles technologies</h3>
+            <p style="color: #34495e; font-size: 1em; line-height: 1.6;">Veille technologique, découverte et expérimentation des innovations récentes.</p>
+        </div>
+    </div>
+
+    <div style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease;">
+        <div style="background-color: #e74c3c; padding: 20px; text-align: center;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1"></path>
+        <path d="M4 19s1-1 4-1 5 2 8 2 4-1 4-1"></path>
+        <path d="M6.5 12h11"></path>
+        <path d="M16 8l2 3"></path>
+        <path d="M6 8l-2 3"></path>
+        <path d="M10 4l2 6"></path>
+        <circle cx="5" cy="19" r="2"></circle>
+        <circle cx="19" cy="19" r="2"></circle>
+    </svg>
+</div>
+        <div style="padding: 20px;">
+            <h3 style="color: #2c3e50; font-size: 1.4em; margin-bottom: 10px;">Balades à moto</h3>
+            <p style="color: #34495e; font-size: 1em; line-height: 1.6;">Exploration de nouveaux itinéraires, sensation de liberté et connexion avec la nature.</p>
+        </div>
+    </div>
+
+    <div style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease;">
+        <div style="background-color: #9b59b6; padding: 20px; text-align: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+            </svg>
+        </div>
+        <div style="padding: 20px;">
+            <h3 style="color: #2c3e50; font-size: 1.4em; margin-bottom: 10px;">Musique</h3>
+            <p style="color: #34495e; font-size: 1em; line-height: 1.6;">Écoute variée, découverte de nouveaux artistes et genres musicaux.</p>
+        </div>
+    </div>
+
+    <div style="background-color: #ffffff; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); overflow: hidden; transition: all 0.3s ease;">
+        <div style="background-color: #f39c12; padding: 20px; text-align: center;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                <line x1="6" y1="1" x2="6" y2="4"></line>
+                <line x1="10" y1="1" x2="10" y2="4"></line>
+                <line x1="14" y1="1" x2="14" y2="4"></line>
+            </svg>
+        </div>
+        <div style="padding: 20px;">
+            <h3 style="color: #2c3e50; font-size: 1.4em; margin-bottom: 10px;">Cuisine</h3>
+            <p style="color: #34495e; font-size: 1em; line-height: 1.6;">Expérimentation de nouvelles recettes, perfectionnement des techniques culinaires.</p>
+        </div>
+    </div>
+</div>
+    <button class="close-btn" onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 30px auto 0; padding: 12px 25px; background-color: #3498db; color: white; border: none; border-radius: 25px; cursor: pointer; transition: all 0.3s ease; font-size: 1em; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.backgroundColor='#2980b9'; this.style.transform='scale(1.05)'" onmouseout="this.style.backgroundColor='#3498db'; this.style.transform='scale(1)'">Fermer</button>
+</div>
+    <div id="contact" class="content">
+    <h2 style="color: #2c3e50; text-align: center; font-size: 2em; margin-bottom: 30px;">Contactez-moi</h2>
+    <form style="max-width: 600px; margin: 0 auto; background-color: #f9f9f9; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+    <div style="margin-bottom: 20px;">
+        <label for="entreprise" style="display: block; margin-bottom: 5px; color: #34495e;">Entreprise</label>
+        <input type="text" id="entreprise" name="entreprise" required="" style="width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px;">
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+    <label for="nom" style="display: block; margin-bottom: 5px; color: #34495e;">Nom</label>
+    <input type="text" id="nom" name="nom" required="" style="width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px; margin-bottom: 10px;">
+    
+    <label for="prenom" style="display: block; margin-bottom: 5px; color: #34495e;">Prénom</label>
+    <input type="text" id="prenom" name="prenom" required="" style="width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px;">
+</div>
+    
+    <div style="margin-bottom: 20px;">
+        <label for="email" style="display: block; margin-bottom: 5px; color: #34495e;">Email</label>
+        <input type="email" id="email" name="email" required="" style="width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px;">
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+        <label for="telephone" style="display: block; margin-bottom: 5px; color: #34495e;">Téléphone</label>
+        <input type="tel" id="telephone" name="telephone" required="" style="width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px;">
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+    <label for="ville_code_postal" style="display: block; margin-bottom: 5px; color: #34495e;">Ville et code postal</label>
+    <div style="display: flex; gap: 10px;">
+        <input type="text" id="ville" name="ville" placeholder="Ville" required="" style="flex: 2; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px;">
+        <input type="text" id="code_postal" name="code_postal" placeholder="Code postal" required="" style="flex: 1; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px;">
+    </div>
+</div>
+    <div style="margin-bottom: 20px;">
+        <label for="adresse" style="display: block; margin-bottom: 5px; color: #34495e;">N° et rue</label>
+        <input type="text" id="adresse" name="adresse" required="" style="width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px;">
+    </div>
+    
+    <div style="margin-bottom: 20px;">
+        <label for="message" style="display: block; margin-bottom: 5px; color: #34495e;">Message</label>
+        <textarea id="message" name="message" rows="5" required="" style="width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px; resize: vertical;"></textarea>
+    </div>
+    
+    <button type="submit" style="display: block; width: 100%; padding: 15px; background-color: #3498db; color: white; border: none; border-radius: 4px; font-size: 18px; cursor: pointer; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Envoyer</button>
+</form>
+    <button class="close-btn" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #34495e; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#2c3e50'" onmouseout="this.style.backgroundColor='#34495e'" onclick="this.closest('.content').classList.remove('active')">Fermer</button>
+</div>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(this.dataset.target).classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.close-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                this.parentElement.classList.remove('active');
+            });
+        });
+    </script>
+</div></body></html>
