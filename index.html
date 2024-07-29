@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="fr"><head>
-    <style>
+<!DOCTYPE html><html lang="en"><head>    <style>
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -8,8 +7,7 @@
             from { width: 0; }
             to { width: 100%; }
         }
-    </style>
-    <base href="https://websim.ai/omegabus/attachment/d72fca77-34e2-4ec6-af73-90b7e69f0776,%20garde%20la%20mise%20en%20forme,%20remplace%20la%20photo%20de%20fond%20de%20page%20actuelle,">
+    </style><base href="https://websim.ai/omegabus/attachment/d72fca77-34e2-4ec6-af73-90b7e69f0776,%20garde%20la%20mise%20en%20forme,%20remplace%20la%20photo%20de%20fond%20de%20page%20actuelle,">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,7 +116,7 @@
                 </h1>
                 <p id="cv" style="font-size: 0.8em; color: #ccc; margin-top: 5px; font-style: italic; text-transform: uppercase; letter-spacing: 2px;"></p>
             </div>
-            <img src="https://github.com/strammfusion/Mickael.Tirard/blob/main/Image2.jpg?raw=true" style="border-radius: 50%; width: 100px; height: 100px; box-shadow: 0 0 15px rgba(255,255,255,0.4); margin-left: 20px; transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease; opacity: 0; animation: fadeIn 1s forwards 2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <img src="https://via.placeholder.com/200" alt="Photo de profil" style="border-radius: 50%; width: 100px; height: 100px; box-shadow: 0 0 15px rgba(255,255,255,0.4); margin-left: 20px; transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease; opacity: 0; animation: fadeIn 1s forwards 2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
         </div>
     </div>
     <script>
@@ -174,20 +172,23 @@ J'ai appris l'importance du travail collaboratif et de la gestion efficace du st
         const toggleText = document.currentScript.previousElementSibling;
         const summary = document.currentScript.closest('summary');
         const details = summary.closest('details');
+        let scrollPosition;
         
         details.addEventListener('toggle', function() {
             if (this.open) {
+                scrollPosition = window.pageYOffset;
                 toggleText.textContent = 'Fermer';
                 summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
             } else {
                 toggleText.textContent = 'Afficher';
                 summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                window.scrollTo(0, scrollPosition);
             }
         });
     })();
     </script>
     </span>
-    <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
+    <span></span>
 </summary>
         <ul style="list-style-type: none; padding-left: 0; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
     <li style="margin-bottom: 15px; padding: 15px; background: linear-gradient(135deg, #f6f8fa 0%, #e9eef2 100%); border-radius: 8px; transition: all 0.3s ease; display: flex; align-items: center;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.1)'">
@@ -246,7 +247,7 @@ J'ai appris l'importance du travail collaboratif et de la gestion efficace du st
     
     <hr style="border: 0; height: 1px; background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); margin: 20px 0;">
     
-    <button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+    <button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Accueil</button>
 </section>
     <button></button>
 </div>
@@ -337,7 +338,7 @@ J'ai appris l'importance du travail collaboratif et de la gestion efficace du st
     </div>
 </div>
     
-    <button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+    <button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Accueil</button>
 </section>
     <button></button>
 </div>
@@ -348,7 +349,7 @@ J'ai appris l'importance du travail collaboratif et de la gestion efficace du st
     <p style="font-size: 1.1em; line-height: 1.8; color: #333; margin-bottom: 20px;">Voici un aperçu de mon parcours professionnel, mettant en évidence mes principales expériences et responsabilités :</p>
     
     <details>
-        <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; position: sticky; top: 100px; z-index: 99;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+        <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: relative; overflow: hidden; position: sticky; top: 50px; z-index: 100;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
     Gérant de société (3 ans) <span style="float: right; font-size: 0.9em; opacity: 0.8;">
     <span class="toggle-text">Afficher</span>
     <script>
@@ -356,14 +357,17 @@ J'ai appris l'importance du travail collaboratif et de la gestion efficace du st
         const toggleText = document.currentScript.previousElementSibling;
         const summary = document.currentScript.closest('summary');
         const details = summary.closest('details');
+        let scrollPosition;
         
         details.addEventListener('toggle', function() {
             if (this.open) {
+                scrollPosition = window.pageYOffset;
                 toggleText.textContent = 'Fermer';
                 summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
             } else {
                 toggleText.textContent = 'Afficher';
                 summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                window.scrollTo(0, scrollPosition);
             }
         });
     })();
@@ -447,27 +451,29 @@ J'ai appris l'importance du travail collaboratif et de la gestion efficace du st
     </details>
 
     <details>
-<summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: sticky; top: 120px; z-index: 98; overflow: hidden;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
-    Responsable technique (5 ans) 
-    <span style="float: right; font-size: 0.9em; opacity: 0.8;">
-        <span class="toggle-text">Afficher</span>
-        <script>
-        (function() {
-            const toggleText = document.currentScript.previousElementSibling;
-            const summary = document.currentScript.closest('summary');
-            const details = summary.closest('details');
-            
-            details.addEventListener('toggle', function() {
-                if (this.open) {
-                    toggleText.textContent = 'Fermer';
-                    summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
-                } else {
-                    toggleText.textContent = 'Afficher';
-                    summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
-                }
-            });
-        })();
-        </script>
+        <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: sticky; top: 120px; z-index: 98; overflow: visible;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    Responsable Technique (5 ans) <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+    <span class="toggle-text">Afficher</span>
+    <script>
+    (function() {
+        const toggleText = document.currentScript.previousElementSibling;
+        const summary = document.currentScript.closest('summary');
+        const details = summary.closest('details');
+        let scrollPosition;
+        
+        details.addEventListener('toggle', function() {
+            if (this.open) {
+                scrollPosition = window.pageYOffset;
+                toggleText.textContent = 'Fermer';
+                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+            } else {
+                toggleText.textContent = 'Afficher';
+                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                window.scrollTo(0, scrollPosition);
+            }
+        });
+    })();
+    </script>
     </span>
     <span></span>
 </summary>
@@ -611,27 +617,29 @@ J'ai appris l'importance du travail collaboratif et de la gestion efficace du st
     </details>
 
     <details>
-<summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: sticky; top: 120px; z-index: 98; overflow: hidden;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
-    Technicien SAV Cuisines Professionnelles (5 ans) 
-    <span style="float: right; font-size: 0.9em; opacity: 0.8;">
-        <span class="toggle-text">Afficher</span>
-        <script>
-        (function() {
-            const toggleText = document.currentScript.previousElementSibling;
-            const summary = document.currentScript.closest('summary');
-            const details = summary.closest('details');
-            
-            details.addEventListener('toggle', function() {
-                if (this.open) {
-                    toggleText.textContent = 'Fermer';
-                    summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
-                } else {
-                    toggleText.textContent = 'Afficher';
-                    summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
-                }
-            });
-        })();
-        </script>
+        <summary style="font-size: 1.2em; color: #fff; cursor: pointer; padding: 10px; background-color: rgba(144, 144, 144, 0.8); border-radius: 5px; margin-bottom: 10px; transition: background-color 0.3s ease, transform 0.3s ease; position: sticky; top: 120px; z-index: 98; overflow: visible;" onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.highlight').style.left='100%'" onmouseout="this.style.transform='scale(1)'; this.querySelector('.highlight').style.left='-100%'">
+    Technicien SAV Cuisines Professionnelles (5 ans) <span style="float: right; font-size: 0.9em; opacity: 0.8;">
+    <span class="toggle-text">Afficher</span>
+    <script>
+    (function() {
+        const toggleText = document.currentScript.previousElementSibling;
+        const summary = document.currentScript.closest('summary');
+        const details = summary.closest('details');
+        let scrollPosition;
+        
+        details.addEventListener('toggle', function() {
+            if (this.open) {
+                scrollPosition = window.pageYOffset;
+                toggleText.textContent = 'Fermer';
+                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+            } else {
+                toggleText.textContent = 'Afficher';
+                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                window.scrollTo(0, scrollPosition);
+            }
+        });
+    })();
+    </script>
     </span>
     <span></span>
 </summary>
@@ -731,14 +739,17 @@ Les compétences que j'ai acquises en formation des utilisateurs et en mise à j
     const toggleText = document.currentScript.previousElementSibling;
     const summary = document.currentScript.closest('summary');
     const details = summary.closest('details');
+    let scrollPosition;
     
     details.addEventListener('toggle', function() {
         if (this.open) {
+            scrollPosition = window.pageYOffset;
             toggleText.textContent = 'Fermer';
             summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
         } else {
             toggleText.textContent = 'Afficher';
             summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+            window.scrollTo(0, scrollPosition);
         }
     });
 })();
@@ -746,77 +757,71 @@ Les compétences que j'ai acquises en formation des utilisateurs et en mise à j
 </span>
     <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
 </summary>
-        <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">Expertise en Programmation d'Usinage par Électro-érosion à Fil</h3>
-    
-    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
-    <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
-        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Électro-érosion à fil</span>
-        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Programmation CNC</span>
-        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Lecture de plans techniques</span>
-        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Mécanique</span>
-        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Électricité</span>
-        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">CAO/FAO</span>
-        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Contrôle qualité</span>
-        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Maintenance</span>
-        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Sécurité industrielle</span>
-        <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Optimisation des processus</span>
+        <div>
+    <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+        <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.4em;">Expertise en Programmation d'Usinage par Électro-érosion à Fil</h3>
+        
+        <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Compétences Clés</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+            <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Électro-érosion à fil</span>
+            <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Programmation CNC</span>
+            <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Lecture de plans techniques</span>
+            <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Mécanique</span>
+            <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Électricité</span>
+            <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">CAO/FAO</span>
+            <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Contrôle qualité</span>
+            <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Maintenance</span>
+            <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Sécurité industrielle</span>
+            <span style="background-color: #3498db; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9em;">Optimisation des processus</span>
+        </div>
+
+        <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Programmation et CFAO</h5>
+                <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                    <li>Maîtrise des logiciels de CFAO (Mastercam, cam CT, Goelan C)</li>
+                    <li>Programmation de découpes 4 axes avec dépouilles constantes et évolutives</li>
+                    <li>Transformations d'usinage et import/export d'opérations</li>
+                </ul>
+            </div>
+            <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Opérations d'Électro-Érosion par Fil</h5>
+                <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                    <li>Analyse des plans et identification des phases d'usinage</li>
+                    <li>Maîtrise des opérations de découpe 4 axes</li>
+                    <li>Réglage et optimisation des paramètres de coupe</li>
+                </ul>
+            </div>
+            <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Ajustage de Moules Métalliques</h5>
+                <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                    <li>Fabrication précise de moules et outils de découpe</li>
+                    <li>Connaissance des matériaux pour moules</li>
+                    <li>Maîtrise des techniques d'ajustage</li>
+                </ul>
+            </div>
+            <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+                <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Maintenance et Optimisation</h5>
+                <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
+                    <li>Exécution de la maintenance préventive</li>
+                    <li>Optimisation des paramètres en cours de programme</li>
+                    <li>Capacité à reprendre et analyser les usinages</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et Acquis Professionnels</h4>
+        <p style="text-align: justify; line-height: 1.8; color: #333;">
+        Mon expérience de 14 ans en tant que technicien d'atelier spécialisé en électro-érosion à fil m'a permis de développer des compétences dans ce domaine de haute précision. J'ai été impliqué dans le montage de machines spéciales et de prototypes, ce qui m'a aidé à interpréter des plans complexes et à assembler des composants mécaniques, électriques et pneumatiques.
+
+        J'ai acquis une connaissance approfondie des procédés d'usinage, de la programmation CNC et de l'optimisation des paramètres de production. Cette expérience m'a permis d'adopter une approche analytique pour résoudre des problèmes mécaniques, particulièrement utile lors de la conception et de la mise au point de prototypes.
+
+        Mes compétences clés incluent le montage de machines spéciales, la maîtrise de l'électro-érosion à fil, ainsi que l'optimisation des processus de fabrication. J'ai également appris à m'adapter rapidement aux nouvelles technologies.
+        </p>
+
+        <button onclick="this.closest('details').removeAttribute('open')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
     </div>
-
-    <h4 style="color: #34495e; margin-top: 25px; margin-bottom: 15px; font-size: 1.2em;">Détails des Compétences</h4>
-    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Programmation et CFAO</h5>
-            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
-                <li>Maîtrise des logiciels de CFAO (Mastercam, cam CT, Goelan C)</li>
-                <li>Programmation de découpes 4 axes avec dépouilles constantes et évolutives</li>
-                <li>Transformations d'usinage et import/export d'opérations</li>
-            </ul>
-        </div>
-        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Opérations d'Électro-Érosion par Fil</h5>
-            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
-                <li>Analyse des plans et identification des phases d'usinage</li>
-                <li>Maîtrise des opérations de découpe 4 axes</li>
-                <li>Réglage et optimisation des paramètres de découpes</li>
-            </ul>
-        </div>
-        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Ajustage de Moules Métalliques et Outils de Découpe</h5>
-            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
-                <li>Fabrication précise de moules et outils de découpe</li>
-                <li>Connaissance des matériaux pour moules et outils</li>
-                <li>Maîtrise des techniques d'ajustage et de finition</li>
-                <li>Assemblage et vérification des tolérances</li>
-            </ul>
-        </div>
-        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Maintenance et Optimisation</h5>
-            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
-                <li>Exécution de la maintenance préventive</li>
-                <li>Optimisation des paramètres en cours de programme</li>
-                <li>Capacité à reprendre et analyser les usinages</li>
-            </ul>
-        </div>
-        <div style="flex: 1 1 calc(50% - 10px); background-color: #f0f0f0; padding: 15px; border-radius: 10px; margin-bottom: 20px;">
-            <h5 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Montage de Machines Spéciales et Prototypes</h5>
-            <ul style="color: #34495e; font-size: 0.9em; padding-left: 20px;">
-                <li>Interprétation des plans et schémas techniques</li>
-                <li>Assemblage de composants mécaniques, électriques et pneumatiques</li>
-                <li>Réglage et mise au point des machines spéciales</li>
-                <li>Collaboration avec les ingénieurs pour les ajustements des prototypes</li>
-            </ul>
-        </div>
-    </div>
-
-    <h4 style="color: #34495e; margin-top: 30px; margin-bottom: 15px; font-size: 1.2em;">Bilan et Acquis Professionnels</h4>
-    <p style="text-align: justify; line-height: 1.8; color: #333;">
-Mon expérience de 14 ans en tant que technicien d'atelier spécialisé en électro-érosion à fil m'a permis de développer des compétences dans ce domaine de haute précision. J'ai été impliqué dans le montage de machines spéciales et de prototypes, ce qui m'a aidé à interpréter des plans complexes et à assembler des composants mécaniques, électriques et pneumatiques.
-
-J'ai acquis une connaissance approfondie des procédés d'usinage, de la programmation CNC et de l'optimisation des paramètres de production. Cette expérience m'a permis d'adopter une approche analytique pour résoudre des problèmes mécaniques, particulièrement utile lors de la conception et de la mise au point de prototypes.
-
-Mes compétences clés incluent le montage de machines spéciales, la maîtrise de l'électro-érosion à fil, ainsi que l'optimisation des processus de fabrication. J'ai également appris à m'adapter rapidement aux nouvelles technologies.
-</p>
 </div>
     </details>
 
@@ -825,23 +830,26 @@ Mes compétences clés incluent le montage de machines spéciales, la maîtrise 
     Electricien Industriel ( 9 ans ) <span style="float: right; font-size: 0.9em; opacity: 0.8;">
     <span class="toggle-text">Afficher</span>
     <script>
-(function() {
-    const toggleText = document.currentScript.previousElementSibling;
-    const summary = document.currentScript.closest('summary');
-    const details = summary.closest('details');
-    
-    details.addEventListener('toggle', function() {
-        if (this.open) {
-            toggleText.textContent = 'Fermer';
-            summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
-        } else {
-            toggleText.textContent = 'Afficher';
-            summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
-        }
-    });
-})();
-</script>
-</span>
+    (function() {
+        const toggleText = document.currentScript.previousElementSibling;
+        const summary = document.currentScript.closest('summary');
+        const details = summary.closest('details');
+        let scrollPosition;
+        
+        details.addEventListener('toggle', function() {
+            if (this.open) {
+                scrollPosition = window.pageYOffset;
+                toggleText.textContent = 'Fermer';
+                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
+            } else {
+                toggleText.textContent = 'Afficher';
+                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                window.scrollTo(0, scrollPosition);
+            }
+        });
+    })();
+    </script>
+    </span>
     <span class="highlight" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;"></span>
 </summary>
         <div style="list-style-type: none; padding-left: 20px; background-color: rgba(255, 255, 255, 0.95); border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
@@ -986,7 +994,7 @@ Mes compétences clés incluent le montage de machines spéciales, la maîtrise 
     </details>
     
     <p style="font-size: 1.1em; line-height: 1.8; color: #333; margin-top: 25px; padding: 20px; background: rgba(230, 230, 230, 0.8); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">Mon parcours professionnel m'a permis d'acquérir des compétences dans plusieurs domaines techniques et managériaux. En tant que gérant de société, j'ai pu développer des connaissances en gestion d'entreprise et service client. Mon expérience de responsable technique m'a aidé à améliorer mes compétences en gestion de projets et coordination d'équipes dans le secteur des cuisines modulaires. Mes années en tant que technicien SAV pour cuisines professionnelles m'ont permis de travailler sur le diagnostic et la maintenance d'équipements spécialisés. En tant que technicien d'atelier, j'ai pu me familiariser avec le montage de machines, l'ajustage, l'électro-érosion à fil et la programmation CNC. Mon expérience d'électricien industriel m'a apporté de bonnes connaissances électriques et sur les normes de sécurité. Ce parcours varié m'a aidé à développer une approche à la fois technique et stratégique des défis professionnels, ainsi qu'une capacité d'adaptation face aux différentes situations rencontrées.
-<button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+<button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Accueil</button>
 </p>
 </section></div>
     <div id="education" class="content">
@@ -1004,14 +1012,17 @@ Mes compétences clés incluent le montage de machines spéciales, la maîtrise 
         const toggleText = document.currentScript.previousElementSibling;
         const summary = document.currentScript.closest('summary');
         const details = summary.closest('details');
+        let scrollPosition;
         
         details.addEventListener('toggle', function() {
             if (this.open) {
+                scrollPosition = window.pageYOffset;
                 toggleText.textContent = 'Fermer';
-                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)';
+                summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
             } else {
                 toggleText.textContent = 'Afficher';
-                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)';
+                summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                window.scrollTo(0, scrollPosition);
             }
         });
     })();
@@ -1099,14 +1110,17 @@ J'ai appris l'importance de l'adaptation aux nouvelles technologies dans l'envir
         const toggleText = document.currentScript.previousElementSibling;
         const summary = document.currentScript.closest('summary');
         const details = summary.closest('details');
+        let scrollPosition;
         
         details.addEventListener('toggle', function() {
             if (this.open) {
+                scrollPosition = window.pageYOffset;
                 toggleText.textContent = 'Fermer';
                 summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
             } else {
                 toggleText.textContent = 'Afficher';
                 summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                window.scrollTo(0, scrollPosition);
             }
         });
     })();
@@ -1196,14 +1210,17 @@ J'ai appris à aborder des problèmes techniques complexes, ce qui m'a préparé
         const toggleText = document.currentScript.previousElementSibling;
         const summary = document.currentScript.closest('summary');
         const details = summary.closest('details');
+        let scrollPosition;
         
         details.addEventListener('toggle', function() {
             if (this.open) {
+                scrollPosition = window.pageYOffset;
                 toggleText.textContent = 'Fermer';
                 summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
             } else {
                 toggleText.textContent = 'Afficher';
                 summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                window.scrollTo(0, scrollPosition);
             }
         });
     })();
@@ -1282,14 +1299,17 @@ J'ai appris à aborder des problèmes techniques complexes, ce qui m'a préparé
         const toggleText = document.currentScript.previousElementSibling;
         const summary = document.currentScript.closest('summary');
         const details = summary.closest('details');
+        let scrollPosition;
         
         details.addEventListener('toggle', function() {
             if (this.open) {
+                scrollPosition = window.pageYOffset;
                 toggleText.textContent = 'Fermer';
                 summary.style.backgroundColor = 'rgba(52, 152, 219, 0.8)'; // Bleu plus vif
             } else {
                 toggleText.textContent = 'Afficher';
                 summary.style.backgroundColor = 'rgba(144, 144, 144, 0.8)'; // Retour à la couleur originale
+                window.scrollTo(0, scrollPosition);
             }
         });
     })();
@@ -1361,7 +1381,7 @@ J'ai appris à aborder des problèmes techniques complexes, ce qui m'a préparé
         </details>
         
         <p style="font-size: 1.1em; line-height: 1.8; color: #333; margin-top: 25px; padding: 20px; background: rgba(230, 230, 230, 0.8); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">Mon parcours de formation éclectique m'a doté d'une base technique solide en électrotechnique, enrichie par des compétences en gestion d'entreprise et une expertise pointue en sécurité électrique. Cette synergie entre connaissances théoriques et savoir-faire pratique me permet d'aborder les défis professionnels avec une vision holistique et une approche sécurisée. Cette polyvalence, fruit de mes diverses formations, constitue un atout majeur pour appréhender les complexités du monde professionnel actuel et proposer des solutions innovantes et efficaces.</p>
-        <button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Fermer</button>
+        <button onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">Accueil</button>
     </section>
 </div>
     <div id="hobbies" class="content">
@@ -1444,7 +1464,7 @@ J'ai appris à aborder des problèmes techniques complexes, ce qui m'a préparé
         </div>
     </div>
 </div>
-    <button class="close-btn" onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 30px auto 0; padding: 12px 25px; background-color: #3498db; color: white; border: none; border-radius: 25px; cursor: pointer; transition: all 0.3s ease; font-size: 1em; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.backgroundColor='#2980b9'; this.style.transform='scale(1.05)'" onmouseout="this.style.backgroundColor='#3498db'; this.style.transform='scale(1)'">Fermer</button>
+    <button class="close-btn" onclick="this.closest('.content').classList.remove('active')" style="display: block; margin: 30px auto 0; padding: 12px 25px; background-color: #3498db; color: white; border: none; border-radius: 25px; cursor: pointer; transition: all 0.3s ease; font-size: 1em; text-transform: uppercase; letter-spacing: 1px; width: fit-content; text-align: center;" onmouseover="this.style.backgroundColor='#2980b9'; this.style.transform='scale(1.05)'" onmouseout="this.style.backgroundColor='#3498db'; this.style.transform='scale(1)'">Accueil</button>
 </div>
     <div id="contact" class="content">
     <h2 style="color: #2c3e50; text-align: center; font-size: 2em; margin-bottom: 30px;">Contactez-moi</h2>
@@ -1479,6 +1499,7 @@ J'ai appris à aborder des problèmes techniques complexes, ce qui m'a préparé
         <input type="text" id="code_postal" name="code_postal" placeholder="Code postal" required="" style="flex: 1; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px;">
     </div>
 </div>
+    
     <div style="margin-bottom: 20px;">
         <label for="adresse" style="display: block; margin-bottom: 5px; color: #34495e;">N° et rue</label>
         <input type="text" id="adresse" name="adresse" required="" style="width: 100%; padding: 10px; border: 1px solid #bdc3c7; border-radius: 4px; font-size: 16px;">
@@ -1493,7 +1514,7 @@ J'ai appris à aborder des problèmes techniques complexes, ce qui m'a préparé
 </form>
     <button class="close-btn" style="display: block; margin: 20px auto 0; padding: 10px 20px; background-color: #34495e; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#2c3e50'" onmouseout="this.style.backgroundColor='#34495e'" onclick="this.closest('.content').classList.remove('active')">Fermer</button>
 </div>
-
+    <svg></svg>
     <script>
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', function() {
